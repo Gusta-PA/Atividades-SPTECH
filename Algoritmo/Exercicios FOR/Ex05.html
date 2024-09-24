@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 05</h1>
+    <hr>
+
+    <button onclick="NumerosCalibasticos()">Números Calisbáticos</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function NumerosCalibasticos() {
+
+        div_resultado.innerHTML = ``
+        
+        for (Numeros = 0; Numeros <= 30; Numeros += 1) {
+            if (Numeros == 3 || Numeros == 4 || Numeros == 7 || Numeros == 10 || Numeros == 12) {
+                div_resultado.innerHTML += ` `
+            } else {
+                div_resultado.innerHTML += `${Numeros} `
+            }
+        }
+    console.log(Numeros)
+    }
+</script>

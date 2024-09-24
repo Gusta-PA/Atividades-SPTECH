@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 17</h1>
+    <hr>
+
+    Quantas pessoas irão entrar no carro?
+    <input type="number" id="input_qtd_passageiros"> <br>
+    Quantas pessoas cabem no carro?
+    <input type="number" id="input_limite_passageiros"> <br>
+
+    <button onclick="VisulizarCarro()">#PartiuCarona</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function VisulizarCarro() {
+        div_resultado.innerHTML = ''
+
+        const Passageiros = Number(input_qtd_passageiros.value)
+        const LimiteCarro = Number(input_limite_passageiros.value)
+
+        for (contagem = 1; contagem <= Passageiros; contagem += 1) {
+            if (contagem === 1) {
+                div_resultado.innerHTML += `Entrou o 1° passageiro (Motorista)<br>`
+            } else
+                if (contagem <= LimiteCarro) {
+                    div_resultado.innerHTML += `Entrou o ${contagem}° passageiro <br>`
+                } else
+                    if (contagem > LimiteCarro) {
+                        div_resultado.innerHTML += `O ${contagem}° passageiro terá que esperar! <br>`
+
+                    }
+        }
+    }
+</script>

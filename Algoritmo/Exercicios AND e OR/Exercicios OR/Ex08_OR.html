@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 08</h1>
+    <hr>
+
+    Informe o nome da empresa:
+    <input id="input_empresa"> <br>
+    Informe o valor da bolsa da empresa:
+    <input id="input_bolsa"> <br>
+    Informe o valor do VR da empresa:
+    <input id="input_vr"> <br>
+    Qual o tempo de deslocamento até a SPTECH?
+    <input id="input_deslocamento"> <br> <br>
+
+    <button onclick="CriterioEmpresa()">
+        É preferida?
+    </button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function CriterioEmpresa(){
+        const NomeEmpresa = input_empresa.value
+        const ValorBolsa = Number(input_bolsa.value)
+        const ValorVR = Number(input_vr.value)
+        const Deslocamento = Number(input_deslocamento.value)
+        
+
+        if(ValorBolsa >= 1800 || ValorVR >=20 || Deslocamento <= 30){
+            div_resultado.innerHTML = `A empresa ${NomeEmpresa} é uma de suas preferências`
+        } else {
+            div_resultado.innerHTML = `A empresa ${NomeEmpresa} está fora da sua lista`
+        }
+    }
+</script>

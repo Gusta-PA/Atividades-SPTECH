@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 25</h1>
+    <hr>
+
+    Infrome um número: <input type="number" id="input_numero"> <br>
+
+    <button onclick="VerDivisores()">
+        Ver divisores
+    </button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function VerDivisores() {
+        div_resultado.innerHTML = ''
+
+        const Numero = Number(input_numero.value)
+        var TotalDivisores = 0
+
+        for (var divisor = 1; divisor <= Numero; divisor += 1) {
+            if (Numero % divisor === 0) {
+                div_resultado.innerHTML += `${divisor} `
+                TotalDivisores++
+            }
+        }
+
+        if (Numero % 2 != 0 && TotalDivisores == 2) {
+            div_resultado.innerHTML = `o número ${Numero} é primo.`
+        }
+    }
+</script>

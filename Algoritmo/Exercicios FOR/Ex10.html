@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 10</h1>
+    <hr>
+
+    Informe o valor menor:
+    <input type="number" id="input_valormenor"> <br>
+    Informe o valor maior:
+    <input type="text" id="input_valormaior"> <br>
+
+    <button onclick="VerificarPares()"> S2 Pares</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function VerificarPares(){
+        div_resultado.innerHTML = ""
+
+        var Inicio = Number(input_valormenor.value)
+        var Fim = Number(input_valormaior.value)
+    
+        if(Inicio % 2 !== 0){
+            Inicio ++
+        }
+        for(; Inicio <= Fim; Inicio += 2){
+            div_resultado.innerHTML += `${Inicio}<br>`
+        } 
+    }
+</script>

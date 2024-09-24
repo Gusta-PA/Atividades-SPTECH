@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 7</h1>
+    <hr>
+
+    Informe um número de 20 a 100:
+    <input type="number" id="input_multiplos"> <br>
+
+    <button onclick="Multiplos()">Adoro multiplos de 5!</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function Multiplos(){
+        div_resultado.innerHTML = ''
+
+        var N_informado = Number(input_multiplos.value)
+
+        for(var repeticao = 0; repeticao <= N_informado; repeticao += 5){
+            div_resultado.innerHTML += `${repeticao} <br>`
+        }
+    }
+</script>

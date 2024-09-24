@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 23</h1>
+    <hr>
+
+    Limite inferior de amostragem: <input type="number" id="input_limite_inferior"> <br>
+    Limite superior de amostragem: <input type="number" id="input_limite_superior"> <br>
+    Número para testar a divisibilidade: <input type="number" id="input_divisibilidade"> <br>
+
+    <button onclick="ContarNumeros()">Contar</button>
+    <div id="div_numeros"></div>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ContarNumeros() {
+        div_numeros.innerHTML = ''
+        div_resultado.innerHTML = ''
+
+        var limiteInferior = Number(input_limite_inferior.value)
+        const limiteSuperior = Number(input_limite_superior.value)
+        const Divisor = Number(input_divisibilidade.value)
+
+        var NumerosExibidos = 0
+        var SomaNumeros = 0
+        var MenorNumero = limiteSuperior
+        var MaiorNumero = 0
+
+        if (limiteSuperior > 100 || limiteSuperior < limiteInferior || limiteInferior < 1 || Divisor < 3 || Divisor > 10) {
+            alert('Houve um erro durante o prenchimento dos parâmetros.')
+        } else
+            for (limiteInferior; limiteInferior <= limiteSuperior; limiteInferior++) {
+                if (limiteInferior % Divisor == 0) {
+                    div_numeros.innerHTML += `${limiteInferior}, `
+                    NumerosExibidos++
+                    SomaNumeros += limiteInferior
+                    var MediaNumeros = SomaNumeros / NumerosExibidos
+
+                    if (limiteInferior < MenorNumero) {
+                        MenorNumero = limiteInferior
+                    }
+                    if (limiteInferior > MaiorNumero) {
+                        MaiorNumero = limiteInferior
+                    }
+                }
+            }
+        div_resultado.innerHTML += `<br> QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${NumerosExibidos} <br> 
+
+    SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${SomaNumeros} <br> 
+
+    MÉDIA DOS NÚMEROS EXIBIDOS: ${MediaNumeros.toFixed(2)} <br>  
+
+    MAIOR NÚMERO EXIBIDO: ${MaiorNumero} <br>
+
+    MENOR NÚMERO EXIBIDO: ${MenorNumero} <br>
+
+`
+    }
+
+</script>

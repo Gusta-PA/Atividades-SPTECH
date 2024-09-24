@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 26</h1>
+    <hr>
+
+    Informe um número: <input type="number" id="input_numero"> <br>
+    <button onclick="SomarPares()">Somar Pares</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function SomarPares() {
+        const Numero = Number(input_numero.value)
+        var SomaPares = 0
+
+        if (Numero < 10 || Numero > 500) {
+            alert('Erro, número informado não atende aos critérios.')
+        } else
+            for (var contagem = 1; contagem <= Numero; contagem += 1) {
+                if (contagem % 2 === 0) {
+                    div_resultado.innerHTML += `${contagem}, `
+                    SomaPares += contagem
+                }
+            }
+        div_resultado.innerHTML += `<br>  Soma dos pares: ${SomaPares}<br>`
+    }
+</script>

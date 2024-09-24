@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+    <hr>
+
+    Informe o peso da criança <input type="text" id="input_peso"> <br>
+    <button onclick="PesoCrianca()">Ler Peso da criança</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function PesoCrianca(){
+        const PesoCriança = Number(input_peso.value)
+
+     if(PesoCriança = 18.3){
+        div_resultado.innerHTML = `Peso Perfeito`
+    } else if(PesoCriança <= 13.5){
+            div_resultado.innerHTML = `Abaixo do Peso`
+        } else if(PesoCriança >21.2){
+            div_resultado.innerHTML = `Acima do peso`
+        } else if(PesoCriança > 13.5){
+            div_resultado.innerHTML = `Peso na Média`
+    }
+}
+</script>

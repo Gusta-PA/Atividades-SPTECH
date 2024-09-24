@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1><u> Exercicio 1 </u> </h1>
+
+        Quantas voltas o carro dará durante a corrida? <br>
+        <input type="number" id="input_voltas"> <br>
+
+        <button onclick="QtdVoltas()">Iniciar Corrida</button> <br>
+        <div id="div_voltas"></div>
+    </center>
+</body>
+</html>
+
+<script>
+    function QtdVoltas(){
+        const qtdVoltas = Number(input_voltas.value)
+
+        for(carro = 1; carro <= qtdVoltas ; carro++){
+            div_voltas.innerHTML += `Carro dando a ${carro}ª volta <br>`
+
+            if(carro == qtdVoltas){
+                div_voltas.innerHTML += `Corrida Finalizada!`
+            }
+        }
+    }
+</script>

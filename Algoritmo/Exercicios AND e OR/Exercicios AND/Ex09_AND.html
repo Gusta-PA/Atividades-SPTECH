@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 8</h1>
+    <hr>
+
+    Qual o intervaldo desejado para os próximos pilotos?
+    <input id="input_altura_inicial" placeholder="Altura Inicial">
+    <input id="input_altura_final" placeholder="Altura Final"> <br>
+
+    Qual seu nome e altura?
+    <input id="input_nome" placeholder="Nome">
+    <input id="input_altura" placeholder="Altura"><br>
+
+    <button onclick="AnalisePiloto()">Analisar Piloto</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function AnalisePiloto() {
+        const AlturaInicial = Number(input_altura_inicial.value) / 100
+        const AlturaFinal = Number(input_altura_final.value) / 100
+
+        const Nome = input_nome.value
+        const AlturaPiloto = Number(input_altura.value) / 100
+
+        console.log(AlturaInicial, AlturaFinal, AlturaPiloto)
+
+        if (AlturaInicial < 1 && AlturaFinal < AlturaInicial) {
+            alert(`Erro`)
+        } else if (AlturaInicial <= AlturaPiloto && AlturaFinal >= AlturaPiloto) {
+                div_resultado.innerHTML += `O candidato ${Nome} com altura de ${AlturaPiloto} participará do processo de seleção de piloto <br>`
+            } else {
+                div_resultado.innerHTML += `Infelizmente o candidato ${Nome} com altura de ${AlturaPiloto} não atende os requisitos<br>`
+            }
+        }
+    
+</script>

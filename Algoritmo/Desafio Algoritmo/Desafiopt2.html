@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Desafio Algoritmo</h1>
+    <hr>
+    Informe as vértices do 1° Retangulo:
+    <input type="text" id="input_x0">
+    <input type="text" id="input_y0">
+    <input type="text" id="input_x1">
+    <input type="text" id="input_y1">
+    <br><br>
+
+    Informe as vértices do 2° Retangulo:
+    <input type="text" id="input_x0_2">
+    <input type="text" id="input_y0_2">
+    <input type="text" id="input_x1_2">
+    <input type="text" id="input_y1_2">
+    <br>
+
+    <button onclick="VerificarColisao()" Colisão>Verificar Colisão</button>
+
+    <div id="div_resultado">
+        <img src="Screenshot_1.jpg" alt="">
+    </div>
+</body>
+
+</html>
+
+<script>
+    function VerificarColisao() {
+        // Dados RETANGULO 1
+        var x0 = Number(input_x0.value)
+        var y0 = Number(input_y0.value)
+        var x1 = Number(input_x1.value)
+        var y1 = Number(input_y1.value)
+
+        var _x0 = Number(input_x0_2.value)
+        var _y0 = Number(input_y0_2.value)
+        var _x1 = Number(input_x1_2.value)
+        var _y1 = Number(input_y1_2.value)
+
+        if (x0 <= _x0) {
+            if (y0 <= _y0) {
+                if (x1 <= _x1) {
+                    if (y1 <= _y1) {
+                        div_resultado.innerHTML = `Os Elementos Colidem`
+                    } else {
+                        div_resultado.innerHTML = `Os Elementos Não colidem`
+                    }
+                } else {
+                    div_resultado.innerHTML = `Os Elementos Não colidem`
+                }
+            } else {
+                div_resultado.innerHTML = `Os Elementos Não colidem`
+            }
+        } else { div_resultado.innerHTML = `Os Elementos Não colidem` }
+
+    }
+</script>

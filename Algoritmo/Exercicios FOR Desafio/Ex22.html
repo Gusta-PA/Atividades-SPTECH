@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 22</h1>
+    <hr>
+
+    Quantos depósitos você fez no banco?
+    <input type="number" id="input_depositos"> <br>
+    Qual o valor de cada um?
+    <input type="number" id="input_valor"> <br>
+
+    <button onclick="qtdDepositos()">Acompanhar Grana</button>
+    <div id="div_resultado"></div>
+    
+</body>
+
+</html>
+
+<script>
+    function qtdDepositos() {
+        div_resultado.innerHTML = ''
+
+        const qtdDepositos = Number(input_depositos.value)
+        const Valor = Number(input_valor.value)
+
+        var ValorDeposito = 0
+
+        for (var contagem = 1; contagem <= qtdDepositos; contagem += 1) {
+            if (contagem % 3 === 0) {
+                ValorDeposito += Valor 
+                ValorDeposito += ValorDeposito * 0.01
+
+                div_resultado.innerHTML += `${contagem}° mês: R$${ValorDeposito.toFixed(2)} <img src="IMG_iconeESTRELA.jpg" alt=""> <br>`
+            } else {
+                ValorDeposito += Valor
+                div_resultado.innerHTML += `${contagem}° mês: R$${ValorDeposito.toFixed(2)} <br>`
+            }
+        }
+        div_resultado.innerHTML += `Total Guardado: R$${ValorDeposito.toFixed(2)}`
+    }
+</script>

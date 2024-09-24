@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07</title>
+</head>
+
+<body>
+    <h1>Exercicio 07</h1>
+    <hr>
+
+    Informe a marca da TV
+    <select id="select_marca">
+        <option value="Samsung">Samsung</option>
+        <option value="LG">LG</option>
+        <option value="Mondial">Mondial</option>
+        <option value="Britania">Britânia</option>
+    </select><br>
+
+    Informe o preço da TV <input type="text" id="input_valor"> <br>
+    <br>
+
+    <button onclick="AnalisarCompra()">Analisar Compra</button>
+
+</body>
+
+</html>
+
+<script>
+    function AnalisarCompra() {
+        const MarcaTV = select_marca.value
+        const PreçoTV = Number(input_valor.value)
+
+        if (PreçoTV < 800 || PreçoTV > 2000) {
+            alert(`TV fora da faixa de preço`)
+        } else if (MarcaTV == 'Mondial' || MarcaTV == 'Britania') {
+            alert(`Na faixa de preço, porém marca não confiável`)
+        } else if (MarcaTV == 'Samsung' || MarcaTV == 'LG') {
+            alert(`Essa TV pode entrar na sua lista!`)
+        }
+
+        if (PreçoTV < 800) {
+            alert(`Preço baixo demais`)
+        } else if (PreçoTV > 2000) {
+            alert(`TV cara demais, infelizmente`)
+        }
+
+    }
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 19</h1>
+    <hr>
+    
+    Quantas xícaras de café com leite você já bebeu na vida?
+    <input type="number" id="input_cafe_leite"> <br>
+
+    <button onclick="MostrarQTD()">Ver quantidade</button>
+    <div id="div_resultado"></div>  
+</body>
+</html>
+
+<script>
+    function MostrarQTD(){
+        div_resultado.innerHTML = ''
+        const qtdXicaras = Number(input_cafe_leite.value)
+
+        for(var contagem = 1; contagem <= qtdXicaras; contagem += 1){
+            div_resultado.innerHTML += `<img src="ColherComCafé.jpg" alt=""> <img src="ColherComCafé.jpg" alt=""> <img src="ColherComLeite.jpg" alt=""> <br>` 
+        }
+    }
+</script>

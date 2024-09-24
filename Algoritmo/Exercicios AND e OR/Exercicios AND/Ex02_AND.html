@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 02</h1>
+    <hr>
+    Informe a sua renda
+    <input id="input_renda"> <br>
+    Informe a renda familiar
+    <input id="input_rendafamiliar"> <br>
+
+    <button onclick="VerBeneficio()">Verificar Ajuda</button>
+</body>
+
+</html>
+
+<script>
+    function VerBeneficio() {
+        const Renda = Number(input_renda.value)
+        const RendaFamiliar = Number(input_rendafamiliar.value)
+
+        if (Renda <= 1050 && RendaFamiliar <= 2100) {
+            alert(`Você terá direito!`)
+        } else {
+            alert(`Você NÃO terá direito!`)
+        }
+    }
+</script>

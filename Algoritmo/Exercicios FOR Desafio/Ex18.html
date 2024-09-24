@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 18</h1>
+    <hr>
+    
+    Quantas Coca-Cola você já bebeu na vida?
+    <input type="number" id="input_qtd_coca"> <br>
+
+    <button onclick="MostrarQTD()">Ver quantidade</button>
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function MostrarQTD(){
+        div_resultado.innerHTML = ''
+        const qtdCOCA = Number(input_qtd_coca.value)
+
+        for(var contagem = 1; contagem <= qtdCOCA; contagem += 1){
+            div_resultado.innerHTML += `<img src="CocaCola.jpg" alt="">`
+        }
+    }
+</script>

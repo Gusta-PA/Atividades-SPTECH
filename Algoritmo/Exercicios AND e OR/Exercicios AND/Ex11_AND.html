@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 11</h1>
+    <hr>
+
+    Quantas passagens você gostaria de ter?
+    <input type="number" id="input_qtd_passagens"> <br>
+
+    <button onclick="ComprarPassagens()">Comprar</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    
+    function ComprarPassagens() {
+        var qtdPassagens = Number(input_qtd_passagens.value)
+
+        if (qtdPassagens < 8 || qtdPassagens > 50) {
+            alert(`Quantidade inválida para o fidelidade!`)
+            div_resultado.innerHTML = ''
+        } else {
+            var ValorPassagem = qtdPassagens * 4.40
+
+            if (qtdPassagens >= 8 && qtdPassagens <= 19) {
+                ValorPassagem = ValorPassagem * 0.97
+            } else if (qtdPassagens >= 20 && qtdPassagens <= 49) {
+                ValorPassagem = ValorPassagem * 0.95
+            } else if (qtdPassagens = 50) {
+                ValorPassagem = ValorPassagem * 0.93
+            }
+        }
+        div_resultado.innerHTML = `Total a pagar: R$${ValorPassagem.toFixed(2)}`
+    }
+</script>

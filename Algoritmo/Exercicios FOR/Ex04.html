@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 04</h1>
+    <hr>
+
+    <button onclick="Pares()">S2 Pares</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function Pares(){
+        div_resultado.innerHTML = ``
+        
+        for(Npares = 0 ; Npares <= 100 ; Npares += 2){
+            div_resultado.innerHTML += `${Npares} <br>` 
+        }
+    }
+</script>

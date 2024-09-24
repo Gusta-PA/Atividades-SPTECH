@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 3</h1>
+    <hr>
+    De quantos em quantos dias você faz academia? 
+    <input type="number" id="input_dias_academia"> <br>
+
+    <button onclick="VerRotina()">Exibir rotina mensal</button>
+    <div id="div_exibicao"></div>
+</body>
+</html>
+
+<script>
+    function VerRotina(){
+        div_exibicao.innerHTML = ''
+        const Rotina = Number(input_dias_academia.value)
+
+        for(var Dias = 1; Dias <= 30; Dias += 1){
+        if(Dias % Rotina == 1){    
+            div_exibicao.innerHTML += `Dia ${Dias} - Musculação <br>`
+        } else{
+            div_exibicao.innerHTML += `Dia ${Dias} - Comer, Dormir, etc <br>`
+        }
+    }
+}
+</script>

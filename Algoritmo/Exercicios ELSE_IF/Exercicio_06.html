@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 06</h1>
+    <hr>
+
+    Informe o Time que você torce: <input type="text" id="input_time"> <br>
+
+    <button onclick="Times()">Fale sobre esse time</button>
+    <div id="div_corinthians" style="color: rgb(255, 255, 255);background-color: black;"></div>
+    <div id="div_palmeiras" style="color: rgb(255, 255, 255);background-color: rgb(15, 114, 40);"></div>
+    <div id="div_santos"></div>
+    <div id="div_saopaulo" style="color: rgb(250, 6, 6);background-color: black;"></div>
+
+</body>
+</html>
+
+<script>
+    function Times(){ 
+    const Time = input_time.value
+    
+        if(Time == 'Corinthians') {
+            div_corinthians.innerHTML = ` Salve o Corinthians ...`     
+        } else if(Time == 'Palmeiras'){
+            div_palmeiras.innerHTML = ` Quando surge o Alviverde Imponente ... `     
+        } else if (Time == 'Santos'){
+            div_santos.innerHTML = ` Quando surge o Alviverde Imponente ... `     
+        } else if(Time == 'São Paulo'){
+            div_saopaulo.innerHTML = ` Quando surge o Alviverde Imponente ... `     
+        }
+    }
+</script>

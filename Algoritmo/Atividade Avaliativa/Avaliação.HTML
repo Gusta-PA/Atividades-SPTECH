@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o episódio que você deseja começar?
+    <input type="number" id="input_episodio"> <br>
+    Quantidade de Tempo disponível:
+    <input type="number" id="input_qtd_tempo"> <br>
+
+    Unidade de tempo em: <select id="select_unidade_tempo">
+        <option value="horas">Horas</option>
+        <option value="minutos">Minutos</option>
+    </select> <br>
+
+    Pular Abertura? <select id="select_pular_abertura">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br>
+
+    Pular Encerramento? <select id="select_pular_encerramento">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br>
+
+    <button onclick="AssistirEpisodios()">Assistir Episódios</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function AssistirEpisodios(){
+        const numeroEpisodios = Number(input_episodio.value)
+
+        if(numeroEpisodios > 1100 || numeroEpisodios < 0){
+            alert(`O número do episódio é inválido`)
+        } 
+    }
+</script>

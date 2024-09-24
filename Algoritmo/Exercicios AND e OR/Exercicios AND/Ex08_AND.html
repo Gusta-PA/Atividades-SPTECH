@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 8</h1>
+    <hr>
+
+    Informe seu Login:
+    <input id="input_login"> <br>
+
+    Informe sua senha:
+    <input type="password" id="input_senha">
+    <button onclick="VerSenha()">Ver senha</button> <br>
+
+    Qual o código de autorização?
+    <input id="input_codigo"> <br>
+
+    <button onclick="Login()">Entrar</button>
+</body>
+
+</html>
+
+<script>
+    function VerSenha() {
+        input_senha.type = input_senha.type === 'password' ? 'text' : 'password'
+    }
+
+    function Login() {
+        const Login = input_login.value
+        const Senha = input_senha.value
+        const Código = input_codigo.value
+
+        if(Login == 'SPTech' && Senha =='digital' && Código == '123'){
+            alert(`Usuário autenticado com sucesso`)
+        } else {
+            alert(`Falha na autenticação`)
+        }
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1>
+    <hr>
+
+    Informe a Idade: <input type="number" id="input_idade" onkeyup="VerificarIdade()"> <br>
+    <div id="div_resultado"></div>
+    
+</body>
+</html>
+
+<script>
+    function VerificarIdade(){
+        div_resultado.innerHTML = ''
+        var idade = Number(input_idade.value)
+
+        for(var IdadeAtual = 0; IdadeAtual <= idade; IdadeAtual ++){
+            var FaseVida = ''
+
+            if(IdadeAtual <= 4){
+                FaseVida = 'Primeira infância'
+            } else if(IdadeAtual <= 6){
+                FaseVida = 'Pré-escolar'
+            } else if(IdadeAtual <= 10){
+                FaseVida = 'Segunda infância'
+            } else if(IdadeAtual <= 18){
+                FaseVida = 'Adolescência'
+            } else if(IdadeAtual <= 50){
+                FaseVida = 'Adulto'
+            } else if(IdadeAtual <= 100){
+                FaseVida = 'Melhor Idade'
+            } else if(IdadeAtual > 100){
+                FaseVida = 'Matusalém'
+            }
+        }
+        div_resultado.innerHTML += `${IdadeAtual} anos (${FaseVida})`
+    }
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Desafio Algoritmo</h1>
+    <hr>
+    Informe as vértices do 1° Retangulo:
+    <input type="text" id="input_x0">
+    <input type="text" id="input_y0">
+    <input type="text" id="input_x1">
+    <input type="text" id="input_y1">
+    <br><br>
+
+    Informe as vértices do 2° Retangulo:
+    <input type="text" id="input_x0_2">
+    <input type="text" id="input_y0_2">
+    <input type="text" id="input_x1_2">
+    <input type="text" id="input_y1_2">
+    <br>
+
+    <button onclick="VerificarColisao()" Colisão>Verificar Colisão</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function VerificarColisao() {
+        // Dados RETANGULO 1
+        var Retangulo1_x0 = Number(input_x0.value)
+        var Retangulo1_y0 = Number(input_y0.value)
+        var Retangulo1_x1 = Number(input_x1.value)
+        var Retangulo1_y1 = Number(input_y1.value)
+
+        var Retangulo2_x0 = Number(input_x0_2.value)
+        var Retangulo2_y0 = Number(input_y0_2.value)
+        var Retangulo2_x1 = Number(input_x1_2.value)
+        var Retangulo2_y1 = Number(input_y1_2.value)
+
+        // Colisão no canto superior direito
+        if (Retangulo1_x0 <= Retangulo2_x0) {
+            if (Retangulo1_y1 <= Retangulo2_y1) {
+                div_resultado.innerHTML = `Os Elementos Colidem`
+                console.log("Bateu no canto superior direito")
+            }
+        } else {
+            div_resultado.innerHTML = `Os Elementos Não colidem`
+        }
+
+        // Colisão no canto inferior direito
+        if (Retangulo1_x0 <= Retangulo2_x0) {
+            if (Retangulo1_y0 <= Retangulo2_y1) {
+                div_resultado.innerHTML = `Os Elementos Colidem`
+                console.log("Bateu no canto inferior direito")
+            }
+        } else {
+            div_resultado.innerHTML = `Os elementos não colidem`
+        }
+
+        // Colisão no canto inferior esquerdo
+        if (Retangulo1_x0 >= Retangulo2_x0) {
+            if (Retangulo1_y1 >= Retangulo2_y0) {
+                div_resultado.innerHTML = `Os Elementos Colidem`
+                console.log("Bateu no canto inferior esquerdo")
+            }
+        } else {
+            div_resultado.innerHTML = `Os elementos não colidem`
+        }
+
+        // Colisão no canto superior esquerdo
+        if (Retangulo1_x0 < Retangulo2_x1) {
+            if (Retangulo1_y0 < Retangulo2_y0) {
+                div_resultado.innerHTML = `Os Elementos Colidem`
+                console.log("Bateu no canto superior esquerdo")
+            }
+        } else {
+            div_resultado.innerHTML = `Os elementos não colidem`
+        }
+    }
+</script>

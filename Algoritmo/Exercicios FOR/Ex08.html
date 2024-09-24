@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+    <hr>
+
+    Informe um número entre 0 e 200:
+    <input type="number" id="input_numero"> <br>
+    <button onclick="Viva7()">Viva o 7"</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function Viva7(){
+        div_resultado.innerHTML = ''
+
+        const NumeroInformado = Number(input_numero.value)
+
+        for(var Nrepeticao = 0; Nrepeticao <= NumeroInformado ; Nrepeticao += 7){
+            div_resultado.innerHTML += `${Nrepeticao}<br>`
+        }
+    }
+</script>

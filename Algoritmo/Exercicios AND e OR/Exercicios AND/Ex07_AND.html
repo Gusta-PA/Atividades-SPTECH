@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exericicio 07</h1>
+    <hr>
+
+    Informe seu login:
+    <input id="input_login"> <br>
+
+    Informe sua senha:
+    <input type="password" id="input_senha">
+    <button onclick="VerSenha()">Ver Senha</button><br>
+
+    <button onclick="Login()">Entrar</button>
+</body>
+
+</html>
+
+<script>
+    function VerSenha() {
+        input_senha.type = input_senha.type === 'password' ? 'text' : 'password'
+    }
+
+    function Login() {
+        const Login = input_login.value
+        const Senha = input_senha.value
+
+        if (Login == 'SPTech' && Senha == 'digital') {
+            alert(`Usuário autenticado com sucesso`)
+        } else {
+            alert(`Falha na autenticação`)
+        }
+    }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 12</h1>
+
+    Qual tabuada você gostaria de verificar? <br>
+    <select id="select_valor_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+
+    <br> <br>
+    Até que número a tabuada deve ser construída? <br>
+    <input type="number" id="input_valor_final"> <br> <br>
+
+    <button onclick="VerTabuada()">
+        Ver tabuada
+    </button>
+
+    <div id="div_tabuada"></div>
+</body>
+
+</html>
+
+<script>
+    function VerTabuada() {
+        div_tabuada.innerHTML = ''
+
+        var ValorInicial = select_valor_tabuada.value
+        const Multiplicador = Number(input_valor_final.value)
+
+        for (numero = 1; numero <= Multiplicador; numero += 1) {
+            var resultado = ValorInicial * numero
+
+            if (numero % 2 == 0) {
+                div_tabuada.innerHTML += `<p style="color: blue;">${ValorInicial} x ${numero} = ${resultado}</p>`
+            } else {
+                div_tabuada.innerHTML += `<p style="color: red;">${ValorInicial} x ${numero} = ${resultado}</p>`
+            }
+
+        }
+    }
+</script>

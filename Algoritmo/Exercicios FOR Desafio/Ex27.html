@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 27</h1>
+    <hr>
+
+    Informe um número limite para a contagem: <input type="number" id="input_limite"> <br>
+    Informe um segundo número para divisibilidade: <input type="number" id="input_inicio">
+    <button onclick="SomarMultiplicadores()">Somar Multiplos</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function SomarMultiplicadores(){
+        div_resultado.innerHTML = ''
+        
+        const numeroLimite = Number(input_limite.value)
+        const divisor = Number(input_inicio.value)
+        
+        var SomaMultiplos = 0
+    
+        if(divisor < 1 || divisor > numeroLimite){
+            alert('Os números informados não estão de acordo com os critérios.')
+        } else
+            for(var contagem = 1; contagem <= numeroLimite; contagem += 1){
+                if(contagem % divisor === 0){
+                    div_resultado.innerHTML += `${contagem} `
+                    SomaMultiplos += contagem
+                }
+        }
+        div_resultado.innerHTML += `<br>A soma dos multiplos é: ${SomaMultiplos}`
+    }
+</script>

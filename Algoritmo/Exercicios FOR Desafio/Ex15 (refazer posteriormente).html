@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 15</h1>
+    <hr>
+    Quantos elefantes incomodam muita gente?
+    <input type="number" id="input_qtd_elefantes"> <br>
+
+    <button onclick="ContagemElefantes()">
+        Atazanar a médium
+    </button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ContagemElefantes() {
+        const qtdElefantes = Number(input_qtd_elefantes.value)
+
+        for (var contagem = 1; contagem <= qtdElefantes; contagem += 1) {
+
+            if (contagem === 1) {
+                div_resultado.innerHTML = `1 elefante incomoda muita gente! <br>`
+
+            } else
+                if (contagem % 2 === 0) {
+                    var incomodam = ''
+                    for (var ctg = 1; ctg <= contagem; ctg++) {
+                        incomodam += 'incomodam, '
+                    }
+                    div_resultado.innerHTML += `${contagem} elefantes ${incomodam} muito mais!<br>`
+                    div_resultado.innerHTML += '1 elefante incomoda muita gente! <br>'
+                } else
+                    if (contagem % 2 === 1 && contagem > 1) {
+                        incomodam = ''
+                        for (ctg = 1; ctg <= contagem; ctg++) {
+                            incomodam += `incomodam, `
+                        }
+                        div_resultado.innerHTML += `${contagem} elefantes ${incomodam} muito mais! <br>`
+                        div_resultado.innerHTML += '1 elefante incomoda muita gente! <br>'
+                    }
+
+        }
+    }
+</script>
