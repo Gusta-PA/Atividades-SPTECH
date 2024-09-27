@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js"></script>
 </head>
+
 <body>
+    <h1>Atividade Avaliativa</h1>
+    <hr>
+    
     Qual o episódio que você deseja começar?
     <input type="number" id="input_episodio"> <br>
     Quantidade de Tempo disponível:
@@ -28,16 +34,7 @@
 
     <button onclick="AssistirEpisodios()">Assistir Episódios</button>
 
-    <div id="div_resultado"></div>
+    <div id="div_episodio"></div>
 </body>
+
 </html>
-
-<script>
-    function AssistirEpisodios(){
-        const numeroEpisodios = Number(input_episodio.value)
-
-        if(numeroEpisodios > 1100 || numeroEpisodios < 0){
-            alert(`O número do episódio é inválido`)
-        } 
-    }
-</script>
