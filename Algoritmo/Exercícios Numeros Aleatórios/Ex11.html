@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div_numero"></div>
+</body>
+
+</html>
+
+<script>
+    var multiplo5 = 0
+    for (var repeticao = 1; repeticao <= 20; repeticao++) {
+        var numero = parseInt(Math.random() * 50 + 1)
+
+        div_numero.innerHTML += `Número escolhido <b>${numero}</b> <br>`
+
+        if (numero % 5 == 0) {
+            multiplo5 += numero
+        }
+    }
+    div_numero.innerHTML += `<p>Soma dos multiplos de 5 = ${multiplo5}</p>`
+</script>

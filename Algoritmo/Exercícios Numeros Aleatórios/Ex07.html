@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div_numeros"></div>
+</body>
+</html>
+
+<script>
+    var nAleatorio = Math.random() * 100 + 1
+
+    if(nAleatorio > 1 && nAleatorio <= 50){
+        div_numeros.innerHTML = `O número <b>${nAleatorio}</b> está no intervalo de 1 a 50`
+    } else {
+        div_numeros.innerHTML = `O número <b>${nAleatorio}</b> está no intervalo de 51 a 100`
+    }
+</script>

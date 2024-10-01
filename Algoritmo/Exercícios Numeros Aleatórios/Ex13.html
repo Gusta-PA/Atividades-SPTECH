@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div_numero"></div>
+</body>
+
+</html>
+
+<script>
+
+    for (var repeticao = 1; repeticao <= 10; repeticao++) {
+        var primeiroDado = parseInt(Math.random() * 6 + 1)
+        var segundoDado = parseInt(Math.random() * 6 + 1)
+
+        var somaDados = primeiroDado + segundoDado
+        if (somaDados % 2 == 0) {
+            var Par = 'é par!'
+            div_numero.innerHTML += `Primeiro dado = ${primeiroDado}, Segundo dado = ${segundoDado}, Soma = ${somaDados} - ${Par}<br>`
+        } else {
+            var Impar = 'é impar!'
+            div_numero.innerHTML += `Primeiro dado = ${primeiroDado}, Segundo dado = ${segundoDado}, Soma = ${somaDados} - ${Impar}<br>`
+        }
+
+        
+    }
+
+</script>

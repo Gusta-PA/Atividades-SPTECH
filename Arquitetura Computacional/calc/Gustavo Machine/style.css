@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.background{
+    background-image: url(https://img.freepik.com/premium-photo/3d-rendered-black-product-stand-with-yellow-neon-lights_167650-2460.jpg?w=740);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+    filter: blur(3px);
+    transform: scale(1.1);
+    
+}
+#container {
+    width: 60%;
+    height: 70%;
+    margin: 50px auto;
+    text-align: center;
+    border: solid 2px #fffb05;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+h1 {
+    color: #fbff06;
+}
+
+input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: black;
+    color: #fffb05;
+    
+}
+
+select,
+button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(58, 55, 55);
+    color: #fffb05;
+}
+
+button {
+    width: 50px;
+    background-color: #fffb05;
+    color: #000000;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #EFB661;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000000;
+    border: 1px solid #63666A;
+    text-align: left;
+    display: none;
+    color: rgb(255, 238, 0);
+}

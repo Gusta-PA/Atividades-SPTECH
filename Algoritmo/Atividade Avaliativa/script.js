@@ -6,7 +6,7 @@ function AssistirEpisodios() {
     const unidadeTempo = select_unidade_tempo.value
     const PularAbertura = select_pular_abertura.value
     const PularEncerramento = select_pular_encerramento.value
-    var TempoDisponivel
+    var TempoDisponivel 
 
     if (numeroEpisodio > 1100 || numeroEpisodio < 1) {
         alert('O número do episódio é inválido')
@@ -28,6 +28,7 @@ function AssistirEpisodios() {
             TempoDisponivel = Number(input_qtd_tempo.value)
         }
         var TempoTotalGasto = 0
+        
         // Inicio da lógica
         for (; TempoDisponivel > 0;) {
             episodio.innerHTML += `<p><b>Episódio: ${numeroEpisodio}</b><p>`
@@ -41,7 +42,7 @@ function AssistirEpisodios() {
                     if (minutos <= 2 && PularAbertura == 'nao') {
                         episodio.innerHTML += `Minuto ${minutos}: Assistindo abertura <br>`
 
-                    } else if (minutos >= 20 && PularEncerramento == 'nao' && PularAbertura == 'simF') {
+                    } else if (minutos >= 20 && PularEncerramento == 'nao' && PularAbertura == 'sim') {
                         episodio.innerHTML += `Minuto ${minutos}: Assistindo encerramento<br>`
                     } else if (minutos >= 22 && PularEncerramento == 'nao' && PularAbertura == 'nao') {
                         episodio.innerHTML += `Minuto ${minutos}: Assistindo encerramento<br>`

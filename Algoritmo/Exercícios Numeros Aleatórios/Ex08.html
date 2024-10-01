@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div_numero"></div>
+</body>
+
+</html>
+
+<script>
+    for (var repeticao = 1; repeticao <= 10; repeticao++) {
+        var numero = parseInt((Math.random() * 100) - 50)
+
+        if (numero == 0) {
+            div_numero.innerHTML += `O número ${numero} <br>`
+        } else if (numero <= 50 && numero >= 1) {
+            div_numero.innerHTML += `O número ${numero} é positivo<br>`
+        } else {
+            div_numero.innerHTML += `O número ${numero} é negativo<br>`
+        }
+    }
+
+</script>

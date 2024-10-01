@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Rotina de Estudos</h1>
+    <hr>
+    Informe quais matérias você deseja estudar:
+    <select id="select_materia1">
+        <option value="0">...</option>
+        <option value="Algoritmo">Algoritmo</option>
+        <option value="Arq.Comp">Arq.Comp</option>
+        <option value="Banco de Dados">Banco de Dados</option>
+        <option value="Introdução a SO">Introdução a SO</option>
+        <option value="TI">TI</option>
+    </select>
+
+    <select id="select_materia2">
+        <option value="0">...</option>
+        <option value="Algoritmo">Algoritmo</option>
+        <option value="Arq.Comp">Arq.Comp</option>
+        <option value="Banco de Dados">Banco de Dados</option>
+        <option value="Introdução a SO">Introdução a SO</option>
+        <option value="TI">TI</option>
+    </select>
+
+    <select id="select_materia3">
+        <option value="0">...</option>
+        <option value="Algoritmo">Algoritmo</option>
+        <option value="Arq.Comp">Arq.Comp</option>
+        <option value="Banco de Dados">Banco de Dados</option>
+        <option value="Introdução a SO">Introdução a SO</option>
+        <option value="TI">TI</option>
+    </select>
+    <br>
+    Quais dias você deseja estudar? <br>
+    <input type="checkbox" id="input_segunda"> Segunda
+    <input type="checkbox" id="input_terça"> Terça
+    <input type="checkbox" id="input_quarta"> Quarta
+    <input type="checkbox" id="input_quinta"> Quinta
+    <input type="checkbox" id="input_sexta"> Sexta
+    <br>
+    <br>
+    Vamos estudar!
+    <button onclick="RotinaEstudos()">Rotina de Estudos</button>
+    
+    <div id="div_qtd_semanas"></div>
+    <div id="div_estudos"></div>
+</body>
+
+</html>
+
+<script>
+    function RotinaEstudos() {
+        var estudos = document.getElementById('div_estudos')
+        estudos.innerHTML = ''
+
+        const materia1 = select_materia1.value
+        const materia2 = select_materia2.value
+        const materia3 = select_materia3.value
+
+        const Segunda = input_segunda.checked
+        const Terça = input_terça.checked
+        const Quarta = input_quarta.checked
+        const Quinta = input_quinta.checked
+        const Sexta = input_sexta.checked
+
+
+        if (materia1 == 0 || materia2 == 0 || materia3 == 0) {
+            alert('Escolha as matérias.')
+        } else if (materia1 == materia2 || materia2 == materia3 || materia3 == materia1) {
+            alert('Você não pode ter matérias repetidas.')
+        } else if (!Segunda && !Terça && !Quarta && !Quinta && !Sexta) {
+            alert('Escolha ao menos um dia para estudar!')
+        } else {
+
+            semanas = document.getElementById('div_qtd_semanas')
+            qtdSemanas = parseInt(Math.random() * 10 + 1)
+
+            semanas.innerHTML = `<p><b>Você irá estudar por ${qtdSemanas} semanas!<b/></p>`
+            if (qtdSemanas <= 3) {
+                semanas.innerHTML += 'Tá tranquilo...'
+            } else if (qtdSemanas <= 5) {
+                semanas.innerHTML += 'Vai ter que se esforçar...'
+            } else if (qtdSemanas) {
+                semanas.innerHTML += 'Boa sorte.'
+            }
+
+            var contadorMateria = 1
+            var materiaAtual
+
+            var diasEstudos = 1
+            for (var numeroSemana = 1; numeroSemana <= qtdSemanas; numeroSemana++) {
+                estudos.innerHTML += `<p><b>Semana ${numeroSemana}</b></p>`
+
+                for (var diaSemana = 1; diaSemana <= 5; diaSemana++) {
+
+                    if (contadorMateria == 1) {
+                        materiaAtual = materia1
+                    } else if (contadorMateria == 2) {
+                        materiaAtual = materia2
+                    } else if (contadorMateria == 3) {
+                        materiaAtual = materia3
+                    }
+
+                    if (diaSemana == 1 && Segunda) {
+                        estudos.innerHTML += `${diasEstudos}° Dia - Segunda - ${materiaAtual}<br>`
+                        contadorMateria++
+                        diasEstudos++
+
+                    } else if (diaSemana == 2 && Terça) {
+                        estudos.innerHTML += `${diasEstudos}° Dia - Terça - ${materiaAtual}<br>`
+                        contadorMateria++
+                        diasEstudos++
+
+                    } else if (diaSemana == 3 && Quarta) {
+                        estudos.innerHTML += `${diasEstudos}° Dia - Quarta - ${materiaAtual}<br>`
+                        contadorMateria++
+                        diasEstudos++
+
+                    } else if (diaSemana == 4 && Quinta) {
+                        estudos.innerHTML += `${diasEstudos}° Dia - Quinta - ${materiaAtual}<br>`
+                        contadorMateria++
+                        diasEstudos++
+
+                    } else if (diaSemana == 5 && Sexta) {
+                        estudos.innerHTML += `${diasEstudos}° Dia - Sexta - ${materiaAtual}<br>`
+                        contadorMateria++
+                        diasEstudos++
+                    }
+                    if (contadorMateria > 3) {
+                        contadorMateria = 1
+                    }
+                }
+            }
+
+        }
+    }
+</script>

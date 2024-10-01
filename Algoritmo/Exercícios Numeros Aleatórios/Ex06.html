@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div_numeros"></div>
+</body>
+</html>
+
+<script>
+    for(var repeticao = 1 ;repeticao <= 10; repeticao++){
+        numero = Math.random()
+        if(numero < 0.5){
+            div_numeros.innerHTML += `o Numero <b>${numero}</b> é menor que 0.5 <br>`
+        } else {
+            div_numeros.innerHTML += `o Numero <b>${numero}</b> é maior que 0.5 <br>` 
+        }
+    }
+</script>
