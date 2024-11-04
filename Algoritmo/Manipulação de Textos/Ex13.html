@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 13</h1> 
+    <hr>
+
+    Digite sua Frase: <input id="input_frase">
+    <br>
+    <button onclick="inverterFrase()">Inverter frase</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+/*    function inverterFrase(){
+
+        div= document.getElementById('div_resultado')
+        div,innerHTML = ''
+
+        var frase = input_frase.value
+        var novaFrase = frase[frase.length -1]
+
+        for(var pos = (frase.length-2); pos >= 0; pos --){
+            novaFrase += frase[pos]
+        }
+
+        div.innerHTML = `${frase} <br> ${novaFrase}`
+    }
+    
+    */
+
+    function inverterFrase(){
+    var div = document.getElementById('div_resultado');
+    div.innerHTML = '';
+
+    var frase = input_frase.value;
+    var novaFrase = '';
+    var palavraAtual = '';
+
+    for (var indice = frase.length - 1; indice >= 0; indice--) {
+
+        if (frase[indice] === ' ' || indice === 0) {
+
+            if (indice === 0) {
+                palavraAtual = frase[indice] + palavraAtual;
+            }
+
+            novaFrase += palavraAtual + ' ';
+            palavraAtual = ''
+        } else {
+            // Construímos a palavra atual da última letra para a primeira
+            palavraAtual = frase[indice] + palavraAtual;
+        }
+    }
+    div.innerHTML = `${frase} <br> ${novaFrase.trim()}`
+}
+
+</script>

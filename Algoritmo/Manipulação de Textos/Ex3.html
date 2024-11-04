@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 3</h1>
+    <hr>
+
+    Digite sua Frase: <input id="input_frase"> <br>
+    Digite um número: <input id="input_numero"> <br>
+
+    <button onclick="caracteres()">Ver Caracteres</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function caracteres() {
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value;
+        var numero = Number(input_numero.value);
+
+
+        div.innerHTML = `Caractére da posição ${numero} - > ${frase[numero -1]}`
+
+     /*   if ((frase.length)< numero || numero < 1) {
+            alert('Erro!')
+        } else {
+            for (var pos = 0; pos <= frase.length; pos++) {
+                if(pos == numero){
+                    div.innerHTML = `Caractére da posição ${pos} -> ${frase[pos- 1]}`
+                }
+            }
+        }
+        */
+    }
+</script>

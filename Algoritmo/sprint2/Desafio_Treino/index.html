@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio p/ Prova</title>
+
+    <style>
+        body img {
+            width: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercicio para Prova - Naruto</h1>
+
+    Energia Disponível <input id="input_energia"> <br>
+    Quantidade de clones <input id="input_clones"> <br>
+    Clones por Linha <input id="input_qtd_clones_linha"> <br>
+
+    <button onclick="criarClones()">Criar Clones</button>
+
+    <div id="div_clones"></div>
+
+</body>
+
+</html>
+
+<script>
+    function criarClones() {
+        div_clones.innerHTML = ''
+
+        const energia = Number(input_energia.value)
+        var qtdClones = Number(input_clones.value)
+        const clonesLinha = Number(input_qtd_clones_linha.value)
+
+        // VALIDAÇÕES
+        if (energia < 20 || energia > 5000) {
+            return alert('ERRO NA ENTRADA DE DADOS – Energia tem que ser entre 20 e 5.000.')
+        }
+        if (qtdClones < 0 || qtdClones > 250) {
+            return alert('ERRO NA ENTRADA DE DADOS – Quantidade de Clones tem que ser entre 0 e 250')
+        }
+        if (clonesLinha <= 0) {
+            return alert('ERRO NA ENTRADA DE DADOS – Quantidade de clones por linha tem que ser maior que 0 ')
+        }
+
+        var energiaNecessaria = qtdClones * 20
+        if (energia < energiaNecessaria) {
+            return alert('ENERGIA INSUFICIENTE – Naruto não tem energia suficiente para criar essa quantidade de clones.')
+        }
+
+        // INSERÇÃO DE NARUTOS NA TELA
+        var cloneNaLinha = 0
+        for (var contagemClones = 0; contagemClones < qtdClones; contagemClones++) {
+
+            if (cloneNaLinha == clonesLinha) {
+                div_clones.innerHTML += `<br>`
+                cloneNaLinha = 0
+            }
+
+            div_clones.innerHTML += `<img src="https://preview.redd.it/seventh-hokage-naruto-uzumaki-art-by-v0-lxdhdculsjpd1.jpg?width=640&crop=smart&auto=webp&s=b1a0a4e8035c2c4f9708d8ae198ec8f93312a052" alt="">`
+            cloneNaLinha++
+
+        }
+
+        // EXIBIÇÃO DOS RESULTADOS
+        var sobraDeEnergia = energia - energiaNecessaria
+        var porcentualEnergia = (sobraDeEnergia / energia) * 100
+
+        console.log(porcentualEnergia)
+        div_clones.innerHTML += `<br>
+             <h2>ANÁLISE DA GERAÇÃO DE CLONES</h2>
+
+                 Energia Inicial: ${energia} <br> 
+
+                 Quantidade de Clones: ${qtdClones} <br>  
+
+                 Sobra de Energia: ${sobraDeEnergia} <br>
+        `
+
+        // MENSAGENS SOBRE A LUTA
+        if (sobraDeEnergia > 1000 || (qtdClones > 50 && porcentualEnergia >= 20)) {
+            return div_clones.innerHTML += `<h3>PROVAVELMENTE VOCÊ VAI GANHAR!</h3>`
+        }
+
+        if (sobraDeEnergia > 500 || (qtdClones >= 20 && qtdClones <= 50) && porcentualEnergia >= 10) {
+            return div_clones.innerHTML += `<h3>A LUTA VAI SER MUITO BOA</h3>`
+        }
+
+        return div_clones.innerHTML += `<h3>LANCE O 'DISCURSO NO JUTSU' COM ESTE AQUI...</h3>`
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 10</h1> <hr>
+
+    Digite sua frase: <input id="input_frase"> <br>
+
+    <button onclick="substituirEspaco()">Substituição</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function substituirEspaco(){
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var novaFrase = ''
+
+        for(var pos = 0 ;pos < frase.length; pos ++){
+            if(frase[pos] == ' '){
+                novaFrase+= '-'
+            } else{
+                novaFrase+= frase[pos]
+            }
+        }
+
+        div.innerHTML = novaFrase
+    }
+</script>

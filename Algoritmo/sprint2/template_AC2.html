@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Selecione o Serviço: <select id="select_servico">
+        <option value="#">Escolha uma opção</option>
+        <option value="manicure">Manicure</option>
+        <option value="barba">Barba</option>
+        <option value="cabelo">Cabelo</option>
+    </select> <br>
+
+
+    Selecione o Dia: <select id="select_dia">
+        <option value="#">Escolha uma opção</option>
+        <option value="segunda"> Segunda-feira </option>
+        <option value="terça"> Terça-feira </option>
+        <option value="quarta"> Quarta-feira </option>
+        <option value="quinta"> Quinta-feira </option>
+        <option value="sexta"> Sexta-feira </option>
+        <option value="sábado"> Sábado </option>
+        <option value="domingo"> Domingo </option>
+    </select> <br>
+
+    Selecione o Horário: <select id="select_horario">
+        <option value="#">Escolha uma opção</option>
+        <option value="0"> 00:00h </option>
+        <option value="1"> 01:00h </option>
+        <option value="2"> 02:00h </option>
+        <option value="3"> 03:00h </option>
+        <option value="4"> 04:00h </option>
+        <option value="5"> 05:00h </option>
+        <option value="6"> 06:00h </option>
+        <option value="7"> 07:00h </option>
+        <option value="8"> 08:00h </option>
+        <option value="9"> 09:00h </option>
+        <option value="10"> 10:00h </option>
+        <option value="11"> 11:00h </option>
+        <option value="12"> 12:00h </option>
+        <option value="13"> 13:00h </option>
+        <option value="14"> 14:00h </option>
+        <option value="15"> 15:00h </option>
+        <option value="16"> 16:00h </option>
+        <option value="17"> 17:00h </option>
+        <option value="18"> 18:00h </option>
+        <option value="19"> 19:00h </option>
+        <option value="20"> 20:00h </option>
+        <option value="21"> 21:00h </option>
+        <option value="22"> 22:00h </option>
+        <option value="23"> 23:00h </option>
+    </select> <br>
+
+    Qual será a recorrência de atendimentos em 1 ano? <input type="number" id="input_recorrencia"> <br>
+
+    <button onclick="realizar()">Realizar Orçamento</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function realizar() {
+
+        div_resultado.innerHTML = ''
+
+        var servico = select_servico.value
+        var dia = select_dia.value
+        var horario = Number(select_horario.value)
+        var recorrencia = Number(input_recorrencia.value)
+
+        if (servico == '#' || dia == '#' || horario == '#' || recorrencia == 0 || recorrencia < 0) {
+            div_resultado.innerHTML = 'Preencha todos os campos para prosseguir'
+
+        } else if (servico == 'manicure' && (horario > 8 && horario < 16)) {
+            var preco = 20
+            var OrçamentoFInal = 0
+            var qtdServicoFidelidade = 0
+
+            for (var diaAtendimento = 1; diaAtendimento <= recorrencia; diaAtendimento++) {
+
+                if (dia == 'terça' || dia == 'quinta') {
+                    var precoDesconto = 4
+                } else {
+                    var precoDesconto = 0
+                }
+
+                var precofinal = preco - precoDesconto
+
+                if (diaAtendimento % 3 == 0) {
+                    precofinal = 0
+                    qtdServicoFidelidade++
+                }
+
+                OrçamentoFInal += precofinal
+
+                div_resultado.innerHTML += `Atendimento ${diaAtendimento} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario} | Preço Serviço: ${preco} | Desconto: ${precoDesconto} | Preço Final: ${precofinal} <br>`
+            }
+
+            if (recorrencia <= 10) {
+                var descontoOrçamento = parseInt(Math.random() * 10 + 1) / 100
+            } else
+                var descontoOrçamento = parseInt(Math.random() * 20 + 1) / 100
+
+            var OrçamentoFInalDescontado = OrçamentoFInal - (OrçamentoFInal * descontoOrçamento)
+
+            div_resultado.innerHTML += `<br> Ao longo do ano, você será atendido ${diaAtendimento - 1} vezes, sendo ${qtdServicoFidelidade} serviços grátis devido à fidelidade, onde o valor final do orçamento SERIA de ${OrçamentoFInal}, mas você ganhou um desconto de ${parseInt(descontoOrçamento * 100)}% então o preço final será de ${OrçamentoFInalDescontado.toFixed(2)}`
+        }
+
+
+
+        else if (servico == 'barba' && (horario > 13 && horario < 20)) {
+            var preco = 15
+            var OrçamentoFInal = 0
+            var qtdServicoFidelidade = 0
+
+            for (var diaAtendimento = 1; diaAtendimento <= recorrencia; diaAtendimento++) {
+
+                if (dia == 'segunda' || dia == 'quarta') {
+                    var precoDesconto = 3
+                } else {
+                    var precoDesconto = 0
+                }
+
+                var precofinal = preco - precoDesconto
+
+                if (diaAtendimento % 4 == 0) {
+                    precofinal = 0
+                    qtdServicoFidelidade++
+                }
+
+                OrçamentoFInal += precofinal
+
+                div_resultado.innerHTML += `Atendimento ${diaAtendimento} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario} | Preço Serviço: ${preco} | Desconto: ${precoDesconto} | Preço Final: ${precofinal} <br>`
+            }
+
+            if (recorrencia <= 10) {
+                var descontoOrçamento = parseInt(Math.random() * 10 + 1) / 100
+            } else
+                var descontoOrçamento = parseInt(Math.random() * 20 + 1) / 100
+
+            var OrçamentoFInalDescontado = OrçamentoFInal - (OrçamentoFInal * descontoOrçamento)
+
+            div_resultado.innerHTML += `<br> Ao longo do ano, você será atendido ${diaAtendimento - 1} vezes, sendo ${qtdServicoFidelidade} serviços grátis devido à fidelidade, onde o valor final do orçamento SERIA de ${OrçamentoFInal}, mas você ganhou um desconto de ${parseInt(descontoOrçamento * 100)}% então o preço final será de ${OrçamentoFInalDescontado.toFixed(2)}`
+        }
+
+
+        else if (servico == 'cabelo') {
+            var preco = 30
+            var OrçamentoFInal = 0
+            var qtdServicoFidelidade = 0
+
+            for (var diaAtendimento = 1; diaAtendimento <= recorrencia; diaAtendimento++) {
+
+                if (dia == 'sexta' || dia == 'sábado' || dia == 'domingo') {
+                    var precoDesconto = 5
+                } else {
+                    var precoDesconto = 0
+                }
+
+                var precofinal = preco - precoDesconto
+
+                if (diaAtendimento % 6 == 0) {
+                    precofinal = 0
+                    qtdServicoFidelidade++
+                }
+
+                OrçamentoFInal += precofinal
+
+                div_resultado.innerHTML += `Atendimento ${diaAtendimento} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario} | Preço Serviço: ${preco} | Desconto: ${precoDesconto} | Preço Final: ${precofinal} <br>`
+            }
+
+            if (recorrencia <= 10) {
+                var descontoOrçamento = parseInt(Math.random() * 10 + 1) / 100
+            } else
+                var descontoOrçamento = parseInt(Math.random() * 20 + 1) / 100
+
+            var OrçamentoFInalDescontado = OrçamentoFInal - (OrçamentoFInal * descontoOrçamento)
+
+            div_resultado.innerHTML += `<br> Ao longo do ano, você será atendido ${diaAtendimento - 1} vezes, sendo ${qtdServicoFidelidade} serviços grátis devido à fidelidade, onde o valor final do orçamento SERIA de ${OrçamentoFInal}, mas você ganhou um desconto de ${parseInt(descontoOrçamento * 100)}% então o preço final será de ${OrçamentoFInalDescontado.toFixed(2)}`
+        }
+
+        else if (
+            servico == 'manicure' && (horario < 8 || horario >  16) ||
+            servico == 'barba' && (horario < 13 || horario > 20)
+        ) {
+         div_resultado.innerHTML = 'O serviço selecionado não está disponível para esse horário'       
+        }
+    } 
+</script>

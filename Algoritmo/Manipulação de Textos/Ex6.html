@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 6</h1>
+    <hr>
+
+    Digite uma frase: <input id="input_frase"> <br>
+
+    <button onclick="substituirLetra()">Subtituir O's</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function substituirLetra(){
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var novaFrase = ''
+
+        for(var pos = 0; pos < frase.length; pos++){
+            if(frase[pos] == 'o' || frase[pos] == 'O'){
+               novaFrase += '0' 
+            } else{
+                novaFrase+= frase[pos]
+            }
+        }
+
+        div.innerHTML = novaFrase
+    }
+</script>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa SP2</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Atividade Avaliativa SP2</h1>
+    <hr>
+
+    Conta: <input type="number" id="input_conta" placeholder="Insira sua conta"> - <input type="number"
+        id="input_digito" placeholder="Insira o Digito" onblur="gerarSenha()">
+    <br>
+
+    Senha: <input type="text" id="input_senha" placeholder="Insira sua senha">
+    <p id="p_senha"></p>
+
+    <button onclick="verificarCampos()">Simular</button>
+
+    <div id="div_conta"></div>
+    <br>
+    <div id="div_simulacao" style="display: none;">
+
+        <label for="input_valor">Digite o Valor</label>
+        <input type="number" id="input_valor"> <br>
+
+        <label for="select_operacao">Operação</label>
+        <select id="select_operacao">
+            <option value="emprestimo">Empréstimo</option>
+            <option value="investimento">Investimento</option>
+        </select> <br>
+
+        <label for="select_prazo">Prazo</label>
+        <select id="select_prazo">
+            <option value="3">3 Meses</option>
+            <option value="6">6 Meses</option>
+            <option value="12">12 Meses</option>
+        </select> <br>
+
+        <button onclick="calculoOperacao()">Calcular</button>
+        <div id="div_operacao"></div>
+
+        <br>
+
+        <button id="button_voltar_simulacao" style="display: none;" onclick="fecharOperacao()">
+            Voltar à simulação
+        </button>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    // variáveis globais
+    var caracter1 = ''
+    var caracter2 = ''
+    var num1 = ''
+    var num2 = ''
+    var palavraAleatória = ''
+
+
+
+
+
+
+    function verificarCampos() {
+        div = document.getElementById('div_conta')
+        div.innerHTML = ''
+
+        div_conta.style.display = 'block'
+
+        var numConta = input_conta.value
+        var numDigito = input_digito.value
+        var senha = input_senha.value
+
+        if (numConta.length != 6) {
+            alert('Só é possível prosseguir com todos os campos sendo preenchidos corretamente!')
+        } else {
+
+            var somaDigitos = Number(numConta[0]) + Number(numConta[1])
+
+            if (somaDigitos % 2 != 0) {
+                alert('Insira digitos válidos para sua conta!')
+            } else {
+                // CRIAÇÃO DO NÚMERO ALEATÓRIO
+                var numAleatorio = parseInt(Math.random() * 4 + 2)
+                var novoNumConta = (Number(numConta) * numAleatorio).toString()
+
+            }
+
+            // VALIDAR CONTA    
+            if (senha.length < 12) {
+                alert('Senha não é longa o bastante!')
+
+            } else if (senha.indexOf(caracter1) == -1 || senha.indexOf(caracter2) == -1) {
+                alert('Insira os caracteres especiais na senha!')
+
+            } else if (senha.indexOf(num1) == -1 || senha.indexOf(num2) == -1) {
+                alert('Insira os números sugeridos!')
+
+            } else if (senha.indexOf(palavraAleatória) == -1) {
+                alert(`Insira "${palavraAleatória}" na senha!`)
+
+            } else if (numDigito == novoNumConta[novoNumConta.length - 1]) {
+                div.innerHTML = `<h3>Conta validada!</h3>
+                    Conta #${numConta} -> Multiplicado por ${numAleatorio} -> #${novoNumConta}`
+
+
+                // Calcular Coeficiente de risco
+                var coeficienteRisco = parseInt(Math.random() * 100 + 1)
+
+                if (coeficienteRisco < 40) {
+                    div.innerHTML += `<br> Risco <B>alto</B> – operação não permitida. `
+
+                } else if (coeficienteRisco >= 40 && coeficienteRisco <= 70) {
+                    div.innerHTML += `<br> Operação com certo grau de risco, continue...`
+                    div_simulacao.style.display = 'block'
+
+                } else {
+                    div.innerHTML += '<br> Operação segura.'
+                    div_simulacao.style.display = 'block'
+                }
+            } else {
+                div.innerHTML = 'O dígito informado não corresponde à conta'
+            }
+        }
+    }
+
+
+
+
+
+
+
+    function gerarSenha() {
+        div = document.getElementById('p_senha')
+        div.innerHTML = ''
+
+        var palavraAleatóriaIndex = parseInt(Math.random() * 3)
+
+        if (palavraAleatóriaIndex == 0) {
+            palavraAleatória = 'alfa'
+        } else if (palavraAleatóriaIndex == 1) {
+            palavraAleatória = 'beta'
+        } else {
+            palavraAleatória = 'gama'
+        }
+
+
+        for (var sequencia = 0; sequencia <= 1; sequencia++) {
+            var caracterAleatorio = parseInt(Math.random() * 4)
+
+            if (caracterAleatorio == 0) {
+                if (sequencia == 0) {
+                    caracter1 = '#'
+                } else {
+                    caracter2 = '#'
+                }
+            } else if (caracterAleatorio == 1) {
+                if (sequencia == 0) {
+                    caracter1 = '@'
+                } else {
+                    caracter2 = '@'
+                }
+            } else if (caracterAleatorio == 2) {
+                if (sequencia == 0) {
+                    caracter1 = '&'
+                } else {
+                    caracter2 = '&'
+                }
+            } else {
+                if (sequencia == 0) {
+                    caracter1 = '!'
+                } else {
+                    caracter2 = '!'
+                }
+            }
+
+            if (caracter1 === caracter2) {
+                sequencia--
+            }
+
+        }
+
+        for (; num1 === num2;) {
+            num1 = parseInt(Math.random() * 13 + 2)
+            num2 = parseInt(Math.random() * 13 + 2)
+        }
+
+        div.innerHTML = `Você deve incluir a palavra <b>${palavraAleatória}</b> e os caractéres <b>
+        "${caracter1}, ${caracter2}" e os números ${num1} e ${num2}</b>`
+    }
+
+
+
+
+
+
+
+    function calculoOperacao() {
+        btnSimulacao = button_voltar_simulacao
+        div_operacao.innerHTML = ''
+
+        var valor = Number(input_valor.value)
+        const operacao = select_operacao.value
+        const prazo = Number(select_prazo.value)
+
+        var jurosTotal = 0
+        var valorizacaoTotal
+
+        if (operacao == 'emprestimo') {
+
+            div_operacao.innerHTML += `<h3 style="color: blue;">Empréstimo Selecionado!</h3>`
+
+            if (prazo == '12') {
+                jurosTotal = 0.24
+            } else if (prazo == '6') {
+                jurosTotal = 0.16
+            } else if (prazo == '3') {
+                jurosTotal = 0.10
+            }
+
+            var jurosMensal = jurosTotal / prazo
+            var parcela = valor / prazo
+            var ValorTotal = 0
+
+            for (var mesAtual = 1; mesAtual <= prazo; mesAtual++) {
+
+                parcela += (parcela * jurosMensal)
+                ValorTotal += parcela
+
+                div_operacao.innerHTML +=
+                    `Mês ${mesAtual} – Para o empréstimo de R$${valor} no prazo de ${prazo} meses, o valor atualizado com juros será de R$ ${parcela.toFixed(2)} <br>`
+            }
+            div_operacao.innerHTML += `<br>Valor total a ser pago: ${ValorTotal.toFixed(2)}`
+            btnSimulacao.style.display = 'block'
+        }
+
+        if (operacao == 'investimento') {
+
+            div_operacao.innerHTML = `<h3 style="color: red;">Investimento Selecionado!</h3>`
+
+            if (prazo == '12') {
+                valorizacaoTotal = 0.13
+            } else if (prazo == 6) {
+                valorizacaoTotal = 0.09
+            } else if (prazo == 3) {
+                valorizacaoTotal = 0.04
+            }
+
+            var valorizacaoMensal = valorizacaoTotal / prazo
+
+            var valorAtualizado = valor
+            var valorTotalAdquirido = valorAtualizado - valor
+
+            for (var mesAtual = 1; mesAtual <= prazo; mesAtual++) {
+
+                valorAtualizado += (valorAtualizado * valorizacaoMensal)
+
+                div_operacao.innerHTML += `Mês ${mesAtual} – Para o investimento de R$${valor} no prazo de ${prazo} meses, o valor atualizado será de R$ ${valorAtualizado.toFixed(2)}. <br>`
+            }
+            div_operacao.innerHTML += ` <br>Valor total adquirido: R$${valorTotalAdquirido.toFixed(2)}`
+            btnSimulacao.style.display = 'block'
+        }
+    }
+
+    function fecharOperacao(){
+        div_conta.style.display = 'none'
+        div_simulacao.style.display = 'none'
+        
+        div_operacao.innerHTML = ''
+        button_voltar_simulacao.style.display = 'none'
+    }
+</script>

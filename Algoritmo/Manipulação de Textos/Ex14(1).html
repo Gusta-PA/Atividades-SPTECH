@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1><hr>
+
+    Digite uma frase: <input id="input_frase"> <br>
+
+    <button onclick="embaralharFrase()">Embaralhar Frase</button>
+    
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+
+<script>
+    function embaralharFrase() {
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var novaFrase = ''
+        var caracteresUsados = ''
+
+        for(var sequencia = 0; sequencia < frase.length; sequencia++){
+        
+            var posAleatoria = parseInt(Math.random() * frase.length)
+            var posValida = false
+
+            for(var tentativa = 0 ; tentativa < frase.length ; tentativa ++){
+
+                if(caracteresUsados.indexOf(frase[posAleatoria]) === -1){
+                    posValida = true
+                    tentativa = frase.length
+                } else{
+                    posAleatoria= parseInt(Math.random() * frase.length)
+                }
+            }
+            
+            if(posValida){
+                novaFrase += frase[posAleatoria]
+                caracteresUsados += posAleatoria.toString()
+            }
+
+        }
+        div.innerHTML += `${novaFrase}`
+    }
+</script>

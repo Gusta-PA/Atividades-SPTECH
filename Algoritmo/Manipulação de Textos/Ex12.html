@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 12</h1>
+    <hr>
+
+    Digite uma frase: <input id="input_frase"> <br>
+
+    <button onclick="contarPalavras()">Contar Palavras</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function contarPalavras() {
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var qtdPalavras = 0
+        var qtdEspaco = 0
+
+        if(frase ==  '' || qtdEspaco > 1){
+            alert('Insira uma frase')
+        } else{
+        for (var pos = 0; pos < frase.length; pos++) {
+
+            var caracterAnterior = frase[pos - 1]
+            var caracterSeguinte = frase[pos + 1]
+
+            if (frase[pos] == ' ' &&
+                caracterAnterior != ' ' &&
+                caracterSeguinte != ' ') 
+                {
+
+                qtdEspaco++
+            }
+        }
+        
+        qtdPalavras += qtdEspaco + 1
+
+        div.innerHTML = `Você tem ${qtdPalavras} palavras`
+    }
+}
+
+</script>

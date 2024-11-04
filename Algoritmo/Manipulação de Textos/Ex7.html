@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 7</h1>
+    <hr>
+
+    Digite uma frase <input id="input_frase"> <br>
+    <button onclick="verFinal()">Validar Frase</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    function verFinal(){
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+
+        if(frase.endsWith('html')){
+            div.innerHTML = 'Termina com html'
+        } else{
+            div.innerHTML = 'Não termina com html'
+        }
+    }
+
+</script>

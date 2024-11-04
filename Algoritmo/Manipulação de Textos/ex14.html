@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1><hr>
+
+    Digite uma frase: <input id="input_frase"> <br>
+
+    <button onclick="embaralharFrase()">Embaralhar Frase</button>
+    
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    /*function embaralharFrase(){
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var novaFrase = ''
+        var caracteresUsados = ''
+
+        for(var pos = 0; pos < frase.length; pos ++){
+            var posAleatoria = parseInt(Math.random() * frase.length)
+
+            for(var tentativa = 0; tentativa < frase.length; tentativa++){
+
+                if(caracteresUsados.indexOf(posAleatoria.toString()) === -1 ){
+                    novaFrase +=frase[posAleatoria]
+                    caracteresUsados += posAleatoria.toString()
+                    tentativa = frase.length
+                }
+            }
+        }
+
+        div.innerHTML = novaFrase
+    } 
+     */
+     function embaralharFrase() {
+    div = document.getElementById('div_resultado');
+    div.innerHTML = '';
+
+    var frase = input_frase.value;
+    var novaFrase = '';
+    var posicoesUsadas = ''; // Armazena as posições já usadas
+
+    for (var indiceFrase = 0; indiceFrase < frase.length; indiceFrase++) {
+        var posicaoAleatoria;
+        var posicaoValida = false; // Para controlar se uma posição válida foi encontrada
+
+        // Laço para encontrar uma posição válida que ainda não foi usada
+        for (var tentativa = 0; tentativa < frase.length; tentativa++) {
+            posicaoAleatoria = Math.floor(Math.random() * frase.length);
+
+            // Verifica se a posição já foi usada
+            if (posicoesUsadas.indexOf(posicaoAleatoria.toString()) === -1) {
+                posicaoValida = true; // Marcamos que encontramos uma posição válida
+                novaFrase += frase[posicaoAleatoria]; // Adiciona a letra correspondente à nova frase
+                posicoesUsadas += posicaoAleatoria.toString(); // Marca a posição como usada
+                tentativa = frase.length; // Finaliza o loop ao encontrar uma posição válida
+            }
+        }
+    }
+
+    div.innerHTML = `${novaFrase}`;
+}
+
+
+</script>

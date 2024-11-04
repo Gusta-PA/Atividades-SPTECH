@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 9</h1>    
+    <hr>
+
+    Digite uma frase: <input type="text" id="input_frase"> <br>
+    Digite um Número: <input type="text" id="input_numero"> <br>
+    <br>
+    <button onclick="verificarVogal()">Verificar Vogal</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    function verificarVogal(){
+        div = document.getElementById('div_resultado');
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+        var numero = Number(input_numero.value)
+
+        if(
+            frase[numero -1] == 'a' || 
+            frase[numero -1] == 'e' ||
+            frase[numero -1] == 'i' ||
+            frase[numero -1] == 'o' ||
+            frase[numero -1] == 'u'
+        ){
+            div.innerHTML = 'é uma vogal!'
+        } else{
+            div.innerHTML = 'não é uma vogal!'
+        }
+
+    }
+    
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 2</h1>
+    <hr>
+
+    Digite uma frase <input id="input_frase">
+    <button onclick="caracteres()">Ver Caracteres</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    function caracteres(){
+        div = document.getElementById('div_resultado')
+        div.innerHTML = ''
+
+        var frase = input_frase.value
+
+        div.innerHTML = `
+        Segunda letra da sua frase = ${frase[1]} <br>
+        Pnultima letra da sua frase = ${frase[frase.length- 2]}
+        `
+
+
+    }
+
+</script>
