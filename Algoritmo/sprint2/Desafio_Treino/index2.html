@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Desafio Algoritmo</h1>
+    <hr>
+
+    <p>Cadastre um País: <input type="text" id="input_pais"></p> <br>
+    <p>Informe sua População: <input type="text" id="input_população"></p> <br>
+    <p>Cadastre seu grau de liberdade econômica: <input type="text" id="input_liberdade_economica"></p> <br>
+
+    <button onclick="cadastroPais()">Cadastrar País</button>
+    <button onclick="analisarPaises()">Analisar</button>
+
+    <div id="div_exibicao"></div>
+</body>
+
+</html>
+
+<script>
+
+    var paisesCadastrados = []
+    var populacaoPaisesCadastrados = []
+    var grauLiberdadeEconomica = []
+    var idhMedio = []
+    var desempregoMedio = []
+
+
+    // CADASTRANDO NOVO PAÍS
+    function cadastroPais() {
+        const pais = input_pais.value;
+        const populacao = Number(input_população.value);
+        const liberdadeEconomica = input_liberdade_economica.value;
+
+        if (populacao < 1000) {
+            alert('Valores Inválidos!')
+            return
+        }
+
+        if (verificarPaisesCadastrados(pais)) {
+            alert('País já cadastrado.');
+            return
+        }
+
+        paisesCadastrados.push(pais)
+        populacaoPaisesCadastrados.push(populacao)
+
+        console.log('País e População Cadastrados')
+
+        verificarLiberdadeEconomica(liberdadeEconomica)
+    }
+
+
+
+    // VERIFICANDO SE O PAÍS EM QUESTÃO ESTÁ CADASTRADO
+    function verificarPaisesCadastrados(país) {
+        for (var pos = 0; pos < paisesCadastrados.length; pos++) {
+            if (paisesCadastrados[pos] == país) {
+                return true
+            }
+        }
+        return false
+    }
+
+
+    // ANALISANDO PAÍSES CADASTRADOS
+    function analisarPaises(liberdadeEconomica) {
+        div_exibicao.innerHTML = ''
+
+        for (var pos = 0; pos < paisesCadastrados.length; pos++) {
+
+            for (var i = 0; i < populacaoPaisesCadastrados.length; i++) {
+                if (i == pos) {
+                    var populacaoAtual = populacaoPaisesCadastrados[i]
+                    break
+                }
+            }
+
+            for (i = 0; i < grauLiberdadeEconomica.length; i++) {
+                if (i == pos) {
+                    var grauLiberdade = grauLiberdadeEconomica[i]
+                    break
+                }
+            }
+
+            for (i = 0; i < idhMedio.length; i++) {
+                if (i == pos) {
+                    var idhMedioPais = idhMedio[i]
+                    break
+                }
+            }
+
+            for (i = 0; i < desempregoMedio.length; i++) {
+                if (i == pos) {
+                    var desempregoMedioPais = desempregoMedio[i]
+
+                    var desempregados = (populacaoAtual * desempregoMedioPais) / 100
+                    break
+                }
+            }
+
+
+            div_exibicao.innerHTML += `
+
+                Pais ${pos + 1}: ${paisesCadastrados[pos]} <br>
+                Categoria: ${grauLiberdade} <br>
+                Habitantes: ${populacaoAtual} <br>
+                IDH médio: ${idhMedioPais} <br>
+                Desemprego Médio: ${desempregoMedioPais}%, ou seja, talvez ${desempregados} estejam sem emprego <br>
+
+                <br>
+            `
+        }
+    }
+
+    // VERIFICANDO O GRAU DE LIBERDADE ECONOMICA
+    function verificarLiberdadeEconomica(liberdadeEconomica) {
+        if (liberdadeEconomica <= 50) {
+            grauLiberdadeEconomica.push('Reprimido')
+            idhMedio.push('0.60')
+            desempregoMedio.push(22)
+
+        } else if (liberdadeEconomica <= 60) {
+            grauLiberdadeEconomica.push('Quase Oprimido')
+            idhMedio.push('0.65')
+            desempregoMedio.push(15)
+
+        } else if (liberdadeEconomica <= 70) {
+            grauLiberdadeEconomica.push('Moderadamente Livre')
+            idhMedio.push('0.74')
+            desempregoMedio.push(8)
+
+        } else if (liberdadeEconomica <= 80) {
+            grauLiberdadeEconomica.push('Quase livre')
+            idhMedio.push('0.77')
+            desempregoMedio.push(7)
+
+        } else {
+            grauLiberdadeEconomica.push('Livre')
+            idhMedio.push('0.85')
+            desempregoMedio.push(5)
+        }
+    }
+
+</script>

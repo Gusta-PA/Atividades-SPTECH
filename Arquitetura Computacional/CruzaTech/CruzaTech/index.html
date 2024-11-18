@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruza-Tech</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <span class="tittle">Cruza-Tech</span>
+            </a>
+        </div>
+    </header>
+    <article>
+        <div class="container">
+            <div id="div_instrucao">
+                <span class="tittle">BEM-VINDO</span>
+                <span id="span_instrucoes">
+                    <span>- À sua direita, haverão perguntas sobre uma <span style="color: yellow;">Arq.Comp</span></span>
+                    <span>- Digite sua resposta na caixa de texto e clique em <span style="color: yellow;">"Verificar"</span> para conferir o resultado</span> <br>
+                    <span>Responda todas as perguntas e a vitória é sua!</span>
+                    
+                </span>
+                <button id="btn_jogar" onclick="iniciarJogo()">JOGAR</button>
+            </div>
+            <div id="jogo">
+
+                <div id="jorge">
+                    <div id="div_dicas">
+                        <span>
+                            1- Sigla para Unidade Central de Processamento.
+                        </span>
+                        <span>
+                            2- Componente que realiza operações lógicas e aritméticas.
+                        </span>
+                        <span>
+                            3- Memória localizada no topo da hierarquia de memória.
+                        </span>
+                        <span>
+                            4- Sigla da memória volátil conhecida como Memória de Acesso Aleatório.
+                        </span>
+                        <span>
+                            5- Memória não volátil que permite apenas a leitura de dados.
+                        </span>
+                        <span>
+                            6- Memória não volátil que precisa de luz ultravioleta para apagar dados.
+                        </span>
+                        <span>
+                            7- Tipo de EEPROM que armazena dados sem precisar de energia.
+                        </span>
+                        <span>
+                            8- Memória que deve ser copiada para a RAM para ser executada.
+                        </span>
+                        <span>
+                            9- Recurso que permite o acesso direto de periféricos à RAM.
+                        </span>
+                        <span>
+                            10- Nome alternativo para Slave Select (SS), que seleciona circuitos.
+                        </span>
+                        <span>
+                            11- Grupo de linhas usado para endereçar a memória física.
+                        </span>
+                        <span>
+                            12- Outro nome para Memory Bus, que transporta dados.
+                        </span>
+                        <span>
+                            13- Processador da Intel lançado em setembro de 2009
+                        </span>
+                        <span>
+                            14- Processador da Intel lançado em novembro de 2008
+                        </span>
+                        <span>
+                            15- Processador com dois núcleos independentes
+                        </span>
+                        <span>
+                            16- Processador com quatro núcleos, baseado no modelo dual-core
+                        </span>
+                    </div>
+                    
+                    <div id="div_area_de_resposta">
+                        <input type="text" id="inp_resposta">
+                        <button onclick="verificar(inp_resposta)">Validar</button>
+                    </div>
+                </div>
+                <div id="cruzadinha"></div>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div class="container">
+            <span>Developed by <b>Gustavo Pereira</b> && Jusley Junior</span>
+            <span>RA: 01242044, RA: 01242064</span>
+            <span>1ADS-A</span>
+            <span>2024</span>
+        </div>
+    </footer>
+</body>
+</html>
